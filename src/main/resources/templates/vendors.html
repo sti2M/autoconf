@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8"/>
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+  	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+	<th:block th:include="layout/header"></th:block>
+  </head>
+  <body>
+  
+  <div class="container">
+  	<div class="card">
+  		<div class="card-block">
+  		<a th:href="@{/vendor/add}" class="btn btn-secondary">Добавить→</a>
+  			<table class="table table-hover">
+  				<thead>
+  					<tr>
+  						<th>Название</th>
+  						<th>Кол-во линий</th>
+  						<th>Действия</th>
+  					</tr>
+  				</thead>
+  				<tbody>
+  					<tr th:each="vendor : ${vendors}">
+  					
+  						<td th:text="${vendor.name}"></td>
+  						<td th:text="${vendor.linesCount}"></td>
+  						<td>
+  							<span>
+  								<a th:href="@{/vendor/edit/} + ${vendor.id}" class="btn btn-primary btn-sm btn-block" >Изменить</a>
+  								<a th:href="@{/vendor/delete/} + ${vendor.id}" class="btn btn-danger btn-sm btn-block">Удалить </a>
+  							</span>
+  						</td>
+  					</tr>
+  				</tbody>
+  				
+  			</table>
+  		</div>
+  	</div>
+ </div>
+ </body>
+</html>
+

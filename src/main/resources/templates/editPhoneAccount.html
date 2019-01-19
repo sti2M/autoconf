@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+	<meta charset="UTF-8"/>
+    <title>Аккаунт</title>
+    <script type="text/javascript" th:src="@{/js/jquery-3.3.1.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+  	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+<!--   	<script type="text/javascript" th:src="@{/js/paFormHelper.js}"></script> -->
+  	<th:block th:include="layout/header"></th:block>
+</head>
+<body>
+<div class="container">
+    <h2>Настройки линий для телефона:</h2>
+<!--     <input type="hidden" th:value="${phone.vendor.getId()}" th:id="phone-id">  -->
+    <div>
+        
+        <form class="form-horizontal" th:object="${paWrapper}" th:action="@{/linesettings/save}" method="POST">
+         	
+			
+			<div class="form-group" th:each="phoneAccount, status : *{phoneAccountList}" th:id="'line'+ ${status.index + 1}">
+				<input type="hidden" th:name="|phoneAccountList[${status.index}]|" th:field="*{phoneAccountList[__${status.index}__].id}" />
+				<input type="hidden" th:name="|phoneAccountList[${status.index}]|" th:field="*{phoneAccountList[__${status.index}__].phone}" />
+				<input type="hidden" th:name="|phoneAccountList[${status.index}]|" th:field="*{phoneAccountList[__${status.index}__].lineNumber}" />
+                <label class="col-sm-2 control-label" th:text="'Аккаунт ' + ${status.index + 1}"></label>
+                
+                
+                <div class="col-sm-10">
+                    <select th:name="|phoneAccountList[${status.index}]|" 
+                    		th:value="${phoneAccount.getAccount()}" class="form-control"
+                    		th:field="*{phoneAccountList[__${status.index}__].account}">
+<!--                     	<option value="" selected="selected" />  -->
+                    	<option th:each="account: ${accountsList}" 
+                    	th:value="${account.id}" 
+                    	th:text="${account.username}"
+                    	th:selected="${phoneAccount.getAccount() == account}" />
+                    </select>
+                </div>
+			</div>
+			
+			<div class="form-group">
+                <div class="col-sm-2">
+                    <button type="submit" class="btn btn-success">Сохранить</button>
+                </div>
+            </div>
+			
+			
+        </form>
+        
+        
+        
+        
+    </div>
+</div>
+</body>
+</html>
