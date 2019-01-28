@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8"/>
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+  	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+	<th:block th:include="layout/header"></th:block>
+  </head>
+  <body>
+  
+  <div class="container">
+  	<div class="card">
+  	
+  		<div class="card-block">
+  		<a th:href="@{/account/add}" class="btn btn-secondary">Добавить→</a>
+  			<table class="table table-hover">
+  				<thead>
+  					<tr>
+  						<th>Логин</th>
+  						<th>Пароль</th>
+  						<th>SIP-сервер</th>
+  						<th>Порт</th>
+  						<th>Действия</th>
+  					</tr>
+  				</thead>
+  				<tbody>
+  					<tr th:each="account : ${accounts}">
+  						<td th:text="${account.username}"></td>
+  						<td th:text="${account.password}"></td>
+  						<td th:text="${account.sipServer}"></td>
+  						<td th:text="${account.sipPort}"></td>
+  						<td>
+  							<span>
+  								<a th:href="@{/account/edit/} + ${account.id}" class="btn btn-primary btn-sm btn-block">Изменить</a>
+  								<a th:href="@{/account/delete/} + ${account.id}" class="btn btn-danger btn-sm btn-block">Удалить</a>
+  							</span>
+  						</td>
+  					</tr>
+  				</tbody>
+  			</table>
+  		</div>
+  	</div>
+  </div>
+  </body>
+</html>
+

@@ -1,7 +1,5 @@
 package autoconf.config;
 
-import java.io.File;
-
 import autoconf.domain.Phone;
 
 public interface ConfigurationStrategy {

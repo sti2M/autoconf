@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+	<meta charset="UTF-8"/>
+    <title>Аккаунт</title>
+    <script type="text/javascript" th:src="@{/js/jquery-3.3.1.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+  	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+  	<script type="text/javascript" th:src="@{/js/phoneFormHelper.js}"></script>
+  	<th:block th:include="layout/header"></th:block>
+</head>
+<body>
+<div class="container">
+    <h2>Телефон</h2>
+    <div>
+        <form class="form-horizontal" th:object="${phone}" th:action="@{/phone/save}" method="post">
+         	 <div class="form-group">
+         	 	<input type="hidden" th:field=*{id} />
+         	 </div>
+         	 
+         	 <div class="form-group">
+                <label class="col-sm-2 control-label">Модель:</label>
+                <div class="col-sm-10">
+                    <select th:field="*{vendor}" class="form-control" th:required="required" id="select-phone">
+                    	<option value="" selected="selected" />
+                    	<option th:each="vendor: ${vendors}" th:value="${vendor.id}" th:text="${vendor.name}" />
+                    </select>
+                </div>
+			</div>
+         	 
+         	<div class="form-group">
+                <label class="col-sm-2 control-label">MAC-адрес:</label>
+                <div class="col-sm-10">
+                    <input type="text" th:maxlength="17" class="form-control"
+                    th:field="*{mac}" th:required="required"
+                    placeholder="MAC-адрес в формате 'AABBCCDDEEFF'"
+                    th:pattern="${macPattern}" />
+                </div>
+            </div> 
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Инвентарный №:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{inventory}" th:required="required" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">МОЛ:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{mol}" />
+                </div>
+			</div>
+			
+			<div class="form-group">
+                <label class="col-sm-2 control-label">Кабинет:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{room}" />
+                </div>
+			</div>
+
+			<div class="form-group">
+                <label class="col-sm-2 control-label">NTP-Сервер:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{ntpServer}" />
+                </div>
+			</div>
+			
+			<div class="form-group">
+                <label class="col-sm-2 control-label">Включить DHCP:</label>
+                <div class="col-sm-10">
+                    <select class="form-control" th:field="*{isDhcp}" id="select-dhcp">
+                    	<option th:value="true" data-th-field="*{isDhcp}">Да</option>
+                    	<option th:value="false" data-th-field="*{isDhcp}">Нет</option>
+                    </select>
+                    
+                </div>
+			</div>
+			
+			<div class="form-group staticIp">
+                <label class="col-sm-2 control-label">IP-адрес:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{ipAddress}" />
+                </div>
+			</div>
+			
+			<div class="form-group staticIp">
+                <label class="col-sm-2 control-label">Маска подсети:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{subnetMask}" />
+                </div>
+			</div>
+			
+			<div class="form-group staticIp">
+                <label class="col-sm-2 control-label">Шлюз по умолчанию:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{defaultGw}" />
+                </div>
+			</div>
+			
+			<div class="form-group staticIp">
+                <label class="col-sm-2 control-label">DNS1:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{dns1}" />
+                </div>
+			</div>
+			
+			<div class="form-group staticIp">
+                <label class="col-sm-2 control-label">DNS2:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{dns2}" />
+                </div>
+			</div>
+			
+			<div class="form-group">
+                <label class="col-sm-2 control-label">Autoprovisioning URL:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{provUrl}" />
+                </div>
+			</div>
+			
+			<div class="form-group">
+                <label class="col-sm-2 control-label">Логин администратора:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{adminLogin}" />
+                </div>
+			</div>
+			
+			<div class="form-group">
+                <label class="col-sm-2 control-label">Пароль администратора:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{adminPassword}" />
+                </div>
+			</div>
+			
+			
+			<div class="form-group">
+                <div class="col-sm-2">
+                    <button type="submit" class="btn btn-success">Далее→</button>
+                </div>
+            </div>
+			
+        </form>       
+        
+    </div>
+</div>
+</body>
+</html>

@@ -6,7 +6,6 @@ import autoconf.config.Configurator;
 import autoconf.data.AccountRepository;
 import autoconf.data.PhoneAccountRepository;
 import autoconf.data.PhoneRepository;
-import autoconf.domain.Account;
 import autoconf.domain.Phone;
 import autoconf.domain.PhoneAccount;
 import autoconf.domain.PhoneAccountWrapper;
@@ -14,7 +13,6 @@ import autoconf.domain.PhoneAccountWrapper;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ModelAttribute;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,9 +50,7 @@ public class PhoneAccountController {
 			pa.setAccount(accountRepo.findById(4).get());
 		}
 		
-		//phoneAccountRepo.saveAll(phoneAccounts);
 		phone.setPhoneAccounts(phoneAccounts);
-		//phoneRepo.save(phone);
 		PhoneAccountWrapper paWrapper = new PhoneAccountWrapper();
 		paWrapper.setPhoneAccountList(phoneAccounts);
 		
@@ -131,21 +127,7 @@ public class PhoneAccountController {
 	public String saveLineSettings(PhoneAccountWrapper paWrapper) {
 		
 		List<PhoneAccount> phoneAccounts = new ArrayList<>(paWrapper.getPhoneAccountList());
-//		phone.getPhoneAccounts().addAll(phoneAccounts);
-//		List<PhoneAccount> phoneAccounts1 = phone.getPhoneAccounts();
-		//int lineNumber = 1;
-		/*for (PhoneAccount phoneAccount : phoneAccounts1) {
-//			phoneAccount.setPhone(phone);
-			//phoneAccount.setPhone(phone);
-			//phoneAccount.setAccount(account);
-			phoneAccount.setLineNumber(lineNumber);
-			lineNumber++;
-			System.err.println(phoneAccount);
-		}*/
-//		phoneRepo.save(phone);
-		for (PhoneAccount pa : phoneAccounts) {
-			//System.err.println(pa);
-		}
+
 		phoneAccountRepo.saveAll(phoneAccounts);
 		
 		Phone phone = paWrapper.getPhoneAccountList().get(0).getPhone();

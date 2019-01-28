@@ -1,0 +1,245 @@
+
+			<!-- <div class="form-group" id="line1">
+                <label class="col-sm-2 control-label">Аккаунт 1:</label>
+                <div class="col-sm-10">
+                    <select class="form-control" th:field="${phone.accounts}">
+                    	<option value="" selected="selected" />
+                    	<option th:each="account: ${accountsList}" th:value="${account.id}" th:text="${account.username}" ></option>
+                    </select>
+                </div>
+			</div>
+			
+			<div class="form-group" id="line2">
+                <label class="col-sm-2 control-label">Аккаунт 2:</label>
+                <div class="col-sm-10">
+                    <select class="form-control" th:field="${phone.accounts}">
+                    	<option value="" selected="selected" />
+                    	<option th:each="account: ${accountsList}" th:value="${account.id}" th:text="${account.username}" ></option>
+                    </select>
+                </div>
+			</div> 
+			
+			<div class="form-group" id="line3">
+                <label class="col-sm-2 control-label">Аккаунт 3:</label>
+                <div class="col-sm-10">
+                    <select class="form-control" th:field="${phone.accounts}">
+                    	<option value="" selected="selected" />
+                    	<option th:each="account: ${accountsList}" th:value="${account.id}" th:text="${account.username}" ></option>
+                    </select>
+                </div>
+			</div>
+			
+			<div class="form-group" id="line4">
+                <label class="col-sm-2 control-label">Аккаунт 4:</label>
+                <div class="col-sm-10">
+                    <select class="form-control" th:field="${phone.accounts}">
+                    	<option value="" selected="selected" />
+                    	<option th:each="account: ${accountsList}" th:value="${account.id}" th:text="${account.username}" ></option>
+                    </select>
+                </div>
+			</div>
+			
+			<div class="form-group" id="line5">
+                <label class="col-sm-2 control-label">Аккаунт 5:</label>
+                <div class="col-sm-10">
+                    <select class="form-control" th:field="${phone.accounts}">
+                    	<option value="" selected="selected" />
+                    	<option th:each="account: ${accountsList}" th:value="${account.id}" th:text="${account.username}" ></option>
+                    </select>
+                </div>
+			</div> 
+			
+			<div class="form-group" id="line6">
+                <label class="col-sm-2 control-label">Аккаунт 6:</label>
+                <div class="col-sm-10">
+                    <select class="form-control" th:field="${phone.accounts}">
+                    	<option value="" selected="selected" />
+                    	<option th:each="account: ${accountsList}" th:value="${account.id}" th:text="${account.username}" ></option>
+                    </select>
+                </div>
+			</div> -->
+			
+			<!-- <div th:each="account, i : ${accounts}" class="form-group" th:id="'line' + ${i}">
+                <label class="col-sm-2 control-label">Аккаунт:</label>
+                <div class="col-sm-10">
+                    <select class="form-control" th:field="${phone.accounts}">
+                    	<option value="" selected="selected" />
+                    	<option th:each="plusAccount: ${accountsList}" th:value="${plusAccount.id}" th:text="${plusAccount.username}" ></option>
+                    </select>
+                </div>
+			</div> -->
+			
+			<!-- <div th:each="account : ${phone.accounts}">
+				<select th:field="${account}">
+					<option th:each="plusAccount: ${accountsList}" th:value="${plusAccount.id}" 
+					th:text="${plusAccount.username}" th:selected="${account.id == plusAccount.id" ></option>
+				</select>
+			</div>  -->
+			
+			<!-- <div th:each="account : ${accounts}">
+				<span th:text="${account.username()}">23</span>
+			</div> -->
+			
+			
+			
+			<!-- <div class="form-group" th:each="account, row : ${}">
+				<label class="col-sm-2 control-label">Аккаунт:</label>
+                <div class="col-sm-10">
+					<select class="form-control" th:field="${phone.accounts[0]}">
+						<option th:each="plusAccount: ${accountsList}" 
+						th:value="${plusAccount.id}" 
+						th:text="${plusAccount.username}"
+						></option>
+					</select>
+				</div>
+			</div>
+			
+			
+			<div class="form-group" id="line1">
+				<label class="col-sm-2 control-label">Аккаунт 1:</label>
+                <div class="col-sm-10">
+					<select class="form-control" th:field="${phone.accounts[0]}">
+						<option th:each="plusAccount: ${accountsList}" 
+						th:value="${plusAccount.id}" 
+						th:text="${plusAccount.username}"
+						></option>
+					</select>
+				</div>
+			</div>
+			
+			<div class="form-group" id="line2">
+				<label class="col-sm-2 control-label">Аккаунт 2:</label>
+                <div class="col-sm-10">
+					<select class="form-control" th:field="${phone.accounts[1]}">
+						<option th:each="plusAccount: ${accountsList}" th:value="${plusAccount.id}" th:text="${plusAccount.username}" ></option>
+					</select>
+				</div>
+			</div>
+			
+			<div class="form-group" id="line3">
+				<label class="col-sm-2 control-label">Аккаунт 3:</label>
+                <div class="col-sm-10">
+					<select class="form-control" th:field="${phone.accounts[2]}">
+						<option th:each="plusAccount: ${accountsList}" th:value="${plusAccount.id}" th:text="${plusAccount.username}" th:selected=""></option>
+					</select>
+				</div>
+			</div>
+			
+			<div class="form-group" id="line4">
+				<label class="col-sm-2 control-label">Аккаунт 4:</label>
+                <div class="col-sm-10">
+					<select class="form-control" th:field="${phone.accounts[3]}">
+						<option th:each="plusAccount: ${accountsList}" th:value="${plusAccount.id}" th:text="${plusAccount.username}" ></option>
+					</select>
+				</div>
+			</div>
+			
+			<div class="form-group" id="line5">
+				<label class="col-sm-2 control-label">Аккаунт 5:</label>
+                <div class="col-sm-10">
+					<select class="form-control" th:field="${phone.accounts[4]}">
+						<option th:each="plusAccount: ${accountsList}" th:value="${plusAccount.id}" th:text="${plusAccount.username}" ></option>
+					</select>
+				</div>
+			</div>
+			
+			<div class="form-group" id="line6">
+				<label class="col-sm-2 control-label">Аккаунт 6:</label>
+                <div class="col-sm-10">
+					<select class="form-control" th:field="${phone.accounts[5]}">
+						<option th:each="plusAccount: ${accountsList}" th:value="${plusAccount.id}" th:text="${plusAccount.username}" ></option>
+					</select>
+				</div>
+			</div> -->
+			
+			
+			
+						
+			<!-- <span th:each="account, row : ${accounts}">
+				 <select th:field="${phone.accounts[__${row.index}]}">
+				 	<option th:each="acc : accountList" th:value="${acc.id}"
+				 	th:text="acc.username" th:selected="${account.username == acc.username}" >
+				 	</option>
+				 </select>
+			</span>
+			 -->
+			<!-- <div class="form-group" id="line1">
+				<select th:field="${phone.accounts[0]}">
+					 	<option th:each="acc : accountList" th:value="${acc.id}"
+					 	th:text="acc.username" th:selected="${phone.accounts[0].username == acc.username}" >
+					 	</option>
+				</select>
+			</div>
+			
+			<div class="form-group" id="line2">
+				<select th:field="${phone.accounts[1]}">
+					 	<option th:each="acc : accountList" th:value="${acc.id}"
+					 	th:text="acc.username" th:selected="${phone.accounts[1].username == acc.username}" >
+					 	</option>
+				</select>
+			</div>
+			
+			<div class="form-group" id="line3">
+				<select th:field="${phone.accounts[2]}">
+					 	<option th:each="acc : accountList" th:value="${acc.id}"
+					 	th:text="acc.username" th:selected="${phone.accounts[2].username == acc.username}" >
+					 	</option>
+				</select>
+			</div> -->
+			
+			
+			
+			<!-- <div class="form-group" id="line1">
+                <label class="col-sm-2 control-label">Аккаунт 1:</label>
+                <div class="col-sm-10">
+                    <select class="form-control" name="idAccount[0]">
+                    	<option th:each="account: ${accounts}" th:value="${account.id}" th:text="${account.username}" ></option>
+                    </select>
+                </div>
+			</div>
+			
+			<div class="form-group" id="line2">
+                <label class="col-sm-2 control-label">Аккаунт 2:</label>
+                <div class="col-sm-10">
+                    <select class="form-control" name="idAccount[1]">
+                    	<option th:each="account: ${accounts}" th:value="${account.id}" th:text="${account.username}" ></option>
+                    </select>
+                </div>
+			</div>
+			
+			<div class="form-group" id="line3">
+                <label class="col-sm-2 control-label">Аккаунт 3:</label>
+                <div class="col-sm-10">
+                    <select class="form-control" name="idAccount[2]">
+                    	<option th:each="account: ${accounts}" th:value="${account.id}" th:text="${account.username}" ></option>
+                    </select>
+                </div>
+			</div>
+			
+			<div class="form-group" id="line4">
+                <label class="col-sm-2 control-label">Аккаунт:</label>
+                <div class="col-sm-10">
+                    <select class="form-control" name="idAccount[3]">
+                    	<option th:each="account: ${accounts}" th:value="${account.id}" th:text="${account.username}" ></option>
+                    </select>
+                </div>
+			</div>
+			
+			<div class="form-group" id="line5">
+                <label class="col-sm-2 control-label">Аккаунт:</label>
+                <div class="col-sm-10">
+                    <select class="form-control" name="idAccount[4]">
+                    	<option th:each="account: ${accounts}" th:value="${account.id}" th:text="${account.username}" ></option>
+                    </select>
+                </div>
+			</div>
+			
+			<div class="form-group" id="line6">
+                <label class="col-sm-2 control-label">Аккаунт:</label>
+                <div class="col-sm-10">
+                    <select class="form-control" name="idAccount[5]">
+                    	<option th:each="account: ${accounts}" th:value="${account.id}" th:text="${account.username}" ></option>
+                    </select>
+                </div>
+			</div>  -->
+			
